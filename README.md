@@ -16,7 +16,9 @@ Pasos:
 8. Correr el siguiente comando:
     php artisan db:seed
 9. Correr el siguiente comando:
+    <br>
     php artisan serve
-10. Ingresar con el siguiente usuario
+10. Ingresar con el siguiente usuario:
+    <br>
     user: admin@bibliotecaperu.com
     pass: 123456789
