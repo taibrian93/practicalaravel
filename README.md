@@ -29,4 +29,5 @@ Pasos:
 10. Ingresar con el siguiente usuario:
     <br>
     user: admin@bibliotecaperu.com
+    <br>
     pass: 123456789
