@@ -20,7 +20,7 @@
         <div class="col-md-4">
             <div class="small-box bg-maroon">
                 <div class="inner">
-                    <h3>{{ $countBooks }}</h3>
+                    <h3>{{ $countAuthors }}</h3>
                     <p>Autores</p>
                 </div>
                 <div class="icon">
@@ -32,7 +32,7 @@
         <div class="col-md-4">
             <div class="small-box bg-olive">
                 <div class="inner">
-                    <h3>{{ $countAuthors }}</h3>
+                    <h3>{{ $countBooks }}</h3>
                     <p>Libros</p>
                 </div>
                 <div class="icon">
