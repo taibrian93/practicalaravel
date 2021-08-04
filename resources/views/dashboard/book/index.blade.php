@@ -58,19 +58,19 @@
                             <td>{{ $book->annoPublicacion }}</td>
                             <td>{{ $book->ubicacionLibrero }}</td>
                             <td>{{ $book->numeroCopia }}</td>
-                            <td>{{ $book->created_at }}</td>
+                            <td>{{ $book->created_at->format('d-m-Y') }}</td>
                             <th class="text-nowrap">
-                                <div class="btn-group">
-                                    <a href="{{ route('book.edit', $book)}}" class="btn bg-lightblue btn-sm">
+                                
+                                    <a href="{{ route('book.edit', $book)}}" class="btn bg-lightblue btn-md" title="Editar">
                                         <i class="fas fa-edit"></i>
-                                        Editar
+                                        
                                     </a>
             
-                                    <a href="#" class="btn btn-danger btn-sm delete" book="{{ $book->id }}">
+                                    <a href="#" class="btn btn-danger btn-md delete" book="{{ $book->id }}" title="Eliminar">
                                         <i class="fas fa-trash-alt"></i>
-                                        Eliminar
+                                        
                                     </a>
-                                </div>
+                                
                             </th>
                         </tr>
                     @endforeach

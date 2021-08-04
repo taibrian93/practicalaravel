@@ -17,7 +17,7 @@ $('.delete').on('click', function(e){
     }).then((result) => {
         if (result.value) {
             $.ajax({
-                url: "/dashboard/book/"+book,
+                url: window.location.href+"/"+book,
                 type: 'DELETE',             
                 data: {
                     '_token' : meta,
@@ -26,7 +26,7 @@ $('.delete').on('click', function(e){
                 success: function(results) {
 
                     
-                    window.location = "/dashboard/book";
+                    window.location = window.location.href;
                  
                     
                     

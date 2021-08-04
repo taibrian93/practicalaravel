@@ -19,7 +19,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <div class="card">
                 {!! Form::model($book,['route' => ['book.update', $book], 'method' => 'put' ]) !!}
                     <div class="card-header">

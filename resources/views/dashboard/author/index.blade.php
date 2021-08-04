@@ -54,19 +54,19 @@
                             <td>{{ $author->nombre.' '.$author->apellido }}</td>
                             <td>{{ $author->dni }}</td>
                             <td>{{ $author->edad }}</td>
-                            <td>{{ $author->created_at }}</td>
+                            <td>{{ $author->created_at->format('d-m-Y') }}</td>
                             <th>
-                                <div class="btn-group">
-                                    <a href="{{ route('author.edit', $author)}}" class="btn bg-lightblue btn-sm">
+                                
+                                    <a href="{{ route('author.edit', $author)}}" class="btn bg-lightblue btn-md" title="Editar">
                                         <i class="fas fa-edit"></i>
-                                        Editar
+                                        
                                     </a>
             
-                                    <a href="#" class="btn btn-danger btn-sm delete" author="{{ $author->id }}">
+                                    <a href="#" class="btn btn-danger btn-md delete" author="{{ $author->id }}" title="Eliminar">
                                         <i class="fas fa-trash-alt"></i>
-                                        Eliminar
+                                        
                                     </a>
-                                </div>
+                                
                             </th>
                         </tr>
                     @endforeach

@@ -19,7 +19,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <div class="card">
                 {!! Form::open(['route' => 'book.store']) !!}
                     <div class="card-header">

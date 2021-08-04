@@ -85,7 +85,7 @@
                             <td>{{ $book->annoPublicacion }}</td>
                             <td>{{ $book->ubicacionLibrero }}</td>
                             <td>{{ $book->numeroCopia }}</td>
-                            <td>{{ $book->created_at }}</td>
+                            <td>{{ $book->created_at->format('d-m-Y') }}</td>
                         </tr>
                     @endforeach
                 @endslot
