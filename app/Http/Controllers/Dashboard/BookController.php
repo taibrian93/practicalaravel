@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\Author;
 use App\Models\Book;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -53,6 +54,9 @@ class BookController extends Controller
             'numeroCopia' => 'required|numeric|min:1|max:120|regex:/^[0-9]*$/',
             'ubicacionLibrero' => 'required',
             'descripcion' => 'required',
+        ],[
+            'annoPublicacion.required' => 'El campo año publicación es obligatorio.',
+            'annoPublicacion.regex' => 'El formato del campo año publicación es inválido.',
         ]);
         
         Book::create($request->all());
@@ -99,6 +103,7 @@ class BookController extends Controller
      */
     public function update(Request $request, Book $book)
     {
+
         $request->validate([
             'idAuthor' => 'required',
             'titulo' => 'required',
@@ -106,6 +111,9 @@ class BookController extends Controller
             'numeroCopia' => 'required|numeric|min:1|max:120|regex:/^[0-9]*$/',
             'ubicacionLibrero' => 'required',
             'descripcion' => 'required',
+        ],[
+            'annoPublicacion.required' => 'El campo año publicación es obligatorio.',
+            'annoPublicacion.regex' => 'El formato del campo año publicación es inválido.',
         ]);
         
         $book->update($request->all());
@@ -114,6 +122,7 @@ class BookController extends Controller
                 ->with([
                     'message' => 'El registro se edito satisfactoriamente!',
                 ]);
+
     }
 
     /**
@@ -126,4 +135,6 @@ class BookController extends Controller
     {
         Book::find($book)->delete();
     }
+
+
 }

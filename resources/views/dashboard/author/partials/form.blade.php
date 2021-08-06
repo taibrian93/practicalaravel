@@ -1,6 +1,6 @@
 <div class="form-group">
     {!! Form::label('nombre', 'Nombre ') !!}
-    {!! Form::text('nombre', null, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) !!}
+    {!! Form::text('nombre', null, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre', 'maxlength' => '255']) !!}
     @error('nombre')
         <span class="invalid-feedback">
             <strong>{{ $message }}</strong>
@@ -10,7 +10,7 @@
 
 <div class="form-group">
     {!! Form::label('apellido', 'Apellido ') !!}
-    {!! Form::text('apellido', null, ['class' => 'form-control' . ($errors->has('apellido') ? ' is-invalid' : ''), 'placeholder' => 'Apellido']) !!}
+    {!! Form::text('apellido', null, ['class' => 'form-control' . ($errors->has('apellido') ? ' is-invalid' : ''), 'placeholder' => 'Apellido', 'maxlength' => '255']) !!}
     @error('apellido')
         <span class="invalid-feedback">
             <strong>{{ $message }}</strong>
@@ -40,7 +40,7 @@
 
 <div class="form-group">
     {!! Form::label('direccion', 'Direccion ') !!}
-    {!! Form::text('direccion', null, ['class' => 'form-control' . ($errors->has('direccion') ? ' is-invalid' : ''), 'placeholder' => 'Direccion']) !!}
+    {!! Form::text('direccion', null, ['class' => 'form-control' . ($errors->has('direccion') ? ' is-invalid' : ''), 'placeholder' => 'Direccion' , 'maxlength' => '255']) !!}
     @error('direccion')
         <span class="invalid-feedback">
             <strong>{{ $message }}</strong>
@@ -50,7 +50,7 @@
 
 <div class="form-group">
     {!! Form::label('telefono', 'Telefono ') !!}
-    {!! Form::text('telefono', null, ['class' => 'form-control' . ($errors->has('telefono') ? ' is-invalid' : ''), 'placeholder' => 'Telefono']) !!}
+    {!! Form::text('telefono', null, ['class' => 'form-control' . ($errors->has('telefono') ? ' is-invalid' : ''), 'placeholder' => 'Telefono', 'maxlength' => '200']) !!}
     @error('telefono')
         <span class="invalid-feedback">
             <strong>{{ $message }}</strong>

@@ -18,7 +18,7 @@
 @stop
 
 @section('content')
-    <div class="row">
+    <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">
                 {!! Form::open(['route' => 'author.store']) !!}
@@ -32,9 +32,9 @@
                         @include('dashboard.author.partials.form')
                     </div>
                     <div class="card-footer d-flex justify-content-end">
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="btn btn-primary" title="Guardar">
                             <i class="fas fa-save"></i>
-                            Guardar
+                            
                         </button>
                     </div>
                 {!! Form::close() !!}

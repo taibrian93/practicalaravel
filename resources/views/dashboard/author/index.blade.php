@@ -57,12 +57,12 @@
                             <td>{{ $author->created_at->format('d-m-Y') }}</td>
                             <th>
                                 
-                                    <a href="{{ route('author.edit', $author)}}" class="btn bg-lightblue btn-md" title="Editar">
+                                    <a href="{{ route('author.edit', $author)}}" class="btn bg-lightblue btn-sm" title="Editar">
                                         <i class="fas fa-edit"></i>
                                         
                                     </a>
             
-                                    <a href="#" class="btn btn-danger btn-md delete" author="{{ $author->id }}" title="Eliminar">
+                                    <a href="#" class="btn btn-danger btn-sm delete" author="{{ $author->id }}" title="Eliminar">
                                         <i class="fas fa-trash-alt"></i>
                                         
                                     </a>

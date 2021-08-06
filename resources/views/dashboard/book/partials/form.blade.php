@@ -11,7 +11,7 @@
 
 <div class="form-group">
     {!! Form::label('titulo', 'Titulo ') !!}
-    {!! Form::text('titulo', null, ['class' => 'form-control' . ($errors->has('titulo') ? ' is-invalid' : ''), 'placeholder' => 'Titulo']) !!}
+    {!! Form::text('titulo', null, ['class' => 'form-control' . ($errors->has('titulo') ? ' is-invalid' : ''), 'placeholder' => 'Titulo', 'maxlength' => '255']) !!}
     @error('titulo')
         <span class="invalid-feedback">
             <strong>{{ $message }}</strong>
@@ -31,7 +31,7 @@
 
 <div class="form-group">
     {!! Form::label('ubicacionLibrero', 'Ubicacion Librero ') !!}
-    {!! Form::text('ubicacionLibrero', null, ['class' => 'form-control' . ($errors->has('ubicacionLibrero') ? ' is-invalid' : ''), 'placeholder' => 'Ubicacion Librero']) !!}
+    {!! Form::text('ubicacionLibrero', null, ['class' => 'form-control' . ($errors->has('ubicacionLibrero') ? ' is-invalid' : ''), 'placeholder' => 'Ubicacion Librero', 'maxlength' => '255']) !!}
     @error('ubicacionLibrero')
         <span class="invalid-feedback">
             <strong>{{ $message }}</strong>

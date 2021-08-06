@@ -8,6 +8,7 @@ $('.edad').keyup(function () {
 
 
 var meta = $("meta[name='csrf-token']").attr("content");
+var urlOrigin = window.location.origin, urlPath = window.location.pathname;
 $('.delete').on('click', function(e){
     e.preventDefault();
     var author = $(this).attr('author');
@@ -24,7 +25,7 @@ $('.delete').on('click', function(e){
     }).then((result) => {
         if (result.value) {
             $.ajax({
-                url: window.location.href+"/"+author,
+                url: urlOrigin+urlPath+"/"+author,
                 type: 'DELETE',             
                 data: {
                     '_token' : meta,
@@ -33,7 +34,7 @@ $('.delete').on('click', function(e){
                 success: function(results) {
 
                     
-                    window.location = window.location.href;
+                    window.location = urlOrigin+urlPath;
                  
                     
                     

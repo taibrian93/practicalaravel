@@ -18,7 +18,7 @@
 @stop
 
 @section('content')
-    <div class="row">
+    <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">
                 {!! Form::model($author,['route' => ['author.update', $author], 'method' => 'put' ]) !!}
@@ -32,9 +32,9 @@
                         @include('dashboard.author.partials.form')
                     </div>
                     <div class="card-footer d-flex justify-content-end">
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="btn btn-primary" title="Editar">
                             <i class="fas fa-edit"></i>
-                            Editar
+                            
                         </button>
                     </div>
                 {!! Form::close() !!}

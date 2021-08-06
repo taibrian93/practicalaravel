@@ -15,8 +15,8 @@ class CreateBooksTable extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('idAuthor');
-            $table->foreign('idAuthor')->references('id')->on('authors')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('idAuthor')->nullable();
+            $table->foreign('idAuthor')->references('id')->on('authors')->onDelete('set null')->onUpdate('cascade');
             $table->string('titulo');
             $table->year('annoPublicacion');
             $table->text('ubicacionLibrero');
