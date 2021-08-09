@@ -16,14 +16,17 @@ $('.delete').on('click', function(e){
     Swal.fire({
         title: '¿Estas seguro de realizar esta acción?',
         text: "¡Una vez eliminado, no podrá recuperar este registro!",
-        icon: 'warning',
+        type: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Si, eliminar registro!',
-        cancelButtonText: 'Cancelar'
+        cancelButtonText: 'Cancelar',
+        allowOutsideClick: false,
     }).then((result) => {
+        
         if (result.value) {
+            
             $.ajax({
                 url: urlOrigin+urlPath+"/"+author,
                 type: 'DELETE',             
@@ -33,11 +36,14 @@ $('.delete').on('click', function(e){
                 },
                 success: function(results) {
 
-                    
-                    window.location = urlOrigin+urlPath;
+                    Swal.fire({
+                        text: 'Se eliminó el registro!',
+                        type: 'success',
+                        // timer: 2000,
+                    }).then((result) => {
+                        window.location = urlOrigin+urlPath;
+                    })
                  
-                    
-                    
                 },
                 cache: false
             });

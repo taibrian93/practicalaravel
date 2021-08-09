@@ -60,6 +60,10 @@
             Lista de Libros Disponibles
         @endslot
 
+        @slot('tsearch')
+            <x-card-tools-search />
+        @endslot
+
         @slot('cbody')
             <x-table>
                 @slot('thead')

@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Author;
+use App\Models\Book;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AuthorController extends Controller
 {
@@ -13,13 +15,24 @@ class AuthorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $authors = Author::orderBy('id', 'desc')->paginate(10);
+        
+        if (!$request->has('search')) {
+            $authors = Author::orderBy('id', 'desc');
+            
+        } else {
+            $authors = Author::whereRaw('CONCAT_WS(" ",nombre,apellido) LIKE ?', ['%'.$request->search.'%'])
+                    ->orWhere('dni', 'LIKE', '%'.$request->search.'%')
+                    ->orderBy('id', 'desc');
+            
+        }
         return view('dashboard.author.index')
                 ->with([
-                    'authors' => $authors,
+                    'authors' => $authors->paginate(10),
                 ]);
+        
+        
     }
 
     /**
@@ -117,5 +130,15 @@ class AuthorController extends Controller
     public function destroy($author)
     {
         Author::find($author)->delete();
+
+        $book = Book::find($author)->withTrashed()->get();
+        if($book){
+            DB::table('books')
+            ->where('idAuthor', $author)
+            ->update(['idAuthor' => NULL]);
+
+        }
     }
+
+
 }

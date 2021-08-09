@@ -3,10 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Author extends Model
 {
     //
+    use SoftDeletes;
 
     protected $fillable = [
         'nombre', 
@@ -19,6 +21,6 @@ class Author extends Model
     ];
 
     public function book(){
-        return $this->hasMany('App\Models\Book');
+        return $this->hasMany('App\Models\Book')->withTrashed();
     }
 }

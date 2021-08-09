@@ -16,12 +16,23 @@ class BookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $books = Book::orderBy('id', 'desc')->paginate(10);
+        if (!$request->has('search')) {
+            $books = Book::orderBy('id', 'desc');
+            
+        } else {
+            $books = Book::select('books.*')
+                    ->leftJoin('authors', 'authors.id', '=', 'books.idAuthor')
+                    ->whereRaw('CONCAT_WS(" ",nombre,apellido) LIKE ?', ['%'.$request->search.'%'])
+                    ->orwhere('titulo', '%'.$request->search.'%')
+                    ->orderBy('id', 'desc');
+            
+        }
         return view('dashboard.book.index')
                 ->with([
-                    'books' => $books,
+                    'books' => $books->paginate(10),
                 ]);
     }
 

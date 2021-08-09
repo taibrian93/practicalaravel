@@ -6,6 +6,7 @@
                     {{ $ctitle }}
                 </h3>
 
+                {{ $tsearch }}
             </div>
 
             <div class="card-body table-responsive p-0">

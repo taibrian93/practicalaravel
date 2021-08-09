@@ -34,6 +34,21 @@
             Lista de Autores
         @endslot
 
+        @slot('tsearch')
+            <div class="card-tools">
+                {!! Form::open(['route' => 'author.index', 'method' => 'get']) !!}
+                    <div class="input-group input-group-sm" style="width: 30vw;">
+                            <input type="text" name="search" class="form-control float-right" placeholder="Buscar...">
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-default">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                    </div>
+                {!! Form::close() !!}
+            </div>
+        @endslot
+
         @slot('cbody')
             <x-table class="text-nowrap">
                 @slot('thead')
